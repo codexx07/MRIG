@@ -46,7 +46,6 @@
 
                   <div class="form-row">
                      <div class="input-data">
-                        <!-- <input type="text" required> -->
                         {{ form.name }}
                         <div class="underline"></div>
                         <label for="">Name</label>
@@ -54,7 +53,6 @@
                   </div>
                   <div class="form-row">
                      <div class="input-data">
-                        <!-- <input type="text" required> -->
                         {{ form.gender }}
                         <div class="underline"></div>
                         <label for="">Gender</label>
@@ -62,11 +60,20 @@
                   </div>
                   <div class="form-row">
                      <div class="input-data">
+                        {{ form.email }}
+                        <div class="underline"></div>
+                        <label for="">Email</label>
+                     </div>
+                  </div>
+                  
+                  <div class="form-row">
+                     <div class="input-data">
                         {{ form.age }}
                         <div class="underline"></div>
                         <label for="">Age</label>
                      </div>
-                  </div>
+                  </div>                  
+                  
                   <button type="submit" class="Button-data">Submit</button>
                   {% with messages=get_flashed_messages() %}
                      {% if messages %}
@@ -84,8 +91,7 @@
          </div>
          <div class="text-section">
             <h1>MRIG</h1>
-            <br>
-            <p>Unlocking Health Insights Made Easy:<br>Seamlessly Upload Your Scans,<br>Receive Personalized Reports,<br>Engage in Conversations with Our AI-Powered Chatbot <br> Gain Deeper Insights on Your Personalized Health Reports.<br>
+            <p><span class="tag-line">Medical Report Intelligence Generation</span><br><br>Unlocking Health Insights Made Easy:<br>Seamlessly Upload Your Scans,<br>Receive Personalized Reports,<br>Engage in Conversations with Our AI-Powered Chatbot <br> Gain Deeper Insights on Your Personalized Health Reports.<br>
                <br>
                <br>
                <span class="typewriter">

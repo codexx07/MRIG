@@ -143,11 +143,12 @@ header {
 
 .upload-section {
   width: calc(30% - 20px);
-  padding: 20px;
+  padding: 10px; /* Reduced padding */
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
   margin: 99px 10px 40px 135px;
+  margin: 20px 10px 20px 135px; /* Adjusted margins */
 }
 
 .upload-section h1,
@@ -197,7 +198,9 @@ form .form-row .textarea {
   transform: translateY(-20px);
   font-size: 14px;
   color: #b77e87;
-}
+} 
+
+
 
 .textarea textarea {
   resize: none;
@@ -264,6 +267,9 @@ form .form-row .textarea {
   color: #000000;
 }
 
+
+
+/* Text section styles */
 .text-section {
   width: calc(50% - 20px);
   color: #fff;
@@ -313,6 +319,10 @@ form .form-row .textarea {
   margin-bottom: 30px;
 }
 
+.text-section tag-line{
+  color:#d0969f;
+}
+
 .text-section button {
   padding: 10px 20px;
   border: none;
@@ -339,7 +349,7 @@ footer {
 }
 
 .footer-content {
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .footer-content p {

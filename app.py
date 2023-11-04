@@ -4,6 +4,8 @@ from wtforms import StringField, FileField, IntegerField
 from flask_uploads import configure_uploads, IMAGES, UploadSet, UploadNotAllowed
 import os
 import json
+import re
+import mail
 
 app = Flask(__name__, static_url_path="/static")
 app.config['SECRET_KEY'] = 'supersecretpasskey'
@@ -15,9 +17,13 @@ configure_uploads(app, images)
 class UploadForm(FlaskForm):
     name = StringField('name')
     gender = StringField('gender')
+    email = StringField('email')
     age = IntegerField("age")
     image = FileField('image')
 
+def validateEmail(email):
+    regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+    return re.fullmatch(regex,email)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -26,6 +32,11 @@ def index():
         name = form.name.data
         gender = form.gender.data
         age = form.age.data
+        email = form.email.data
+
+        if validateEmail(email) == None:
+            flash("Wrong E-Mail Format!")
+            return redirect(url_for('index'))
         try:
             filename = images.save(form.image.data)
         except UploadNotAllowed:
@@ -42,10 +53,15 @@ def index():
         op['name'] = name
         op['age'] = age
         op['gender'] = gender
+        op['email'] = email
+        print(op)
+        mail.sendMail(email)
+        print("mail sent")
         op_file = open("static/input.json", "w")
         json.dump(op, op_file, indent=4)
         print("exported to json")
         return redirect(url_for('result'))
+    
     return render_template("Page1.html", form=form)
 
 @app.route('/result')
