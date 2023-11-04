@@ -50,6 +50,23 @@ body {
     }
 }
 
+/* Add this CSS to your existing stylesheet or within a <style> tag in your HTML */
+
+.uploaded-button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.uploaded-button:hover {
+  background-color: #45a049; /* Darker shade of green on hover */
+}
+
+
 .logo {
   position: absolute;
   left: 20px;
@@ -138,7 +155,7 @@ header {
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
-  margin: 99px 100px 40px 135px; /* Adjusted top, right, and left margins */
+  margin: 99px 10px 40px 135px; /* Adjusted top, right, and left margins */
 }
 
 

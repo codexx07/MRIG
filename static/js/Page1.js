@@ -14,4 +14,5 @@ function showImage() {
   var target = document.getElementById("target");
   
   target.innerText = "File uploaded"
+  target.classList.add("uploaded-button");
 }
