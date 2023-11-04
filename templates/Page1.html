@@ -26,28 +26,30 @@
       <div class="content-wrapper">
          <div class="upload-section">
             <div class="form-container">
-               <button type="submit" class="circle-icon">
-               <span>+</span>
-               </button>
-               <h1>Add your Files</h1>
+               
                <form action="#">
+                  {{ form.csrf_token }}
+                  {{ form.image }}
+                  <h1>Add your Files</h1>
                   <div class="form-row">
                      <div class="input-data">
-                        <input type="text" required>
+                        <!-- <input type="text" required> -->
+                        {{ form.name }}
                         <div class="underline"></div>
                         <label for="">Name</label>
                      </div>
                   </div>
                   <div class="form-row">
                      <div class="input-data">
-                        <input type="text" required>
+                        <!-- <input type="text" required> -->
+                        {{ form.gender }}
                         <div class="underline"></div>
                         <label for="">Gender</label>
                      </div>
                   </div>
                   <div class="form-row">
                      <div class="input-data">
-                        <input type="text" required>
+                        {{ form.age }}
                         <div class="underline"></div>
                         <label for="">Age</label>
                      </div>

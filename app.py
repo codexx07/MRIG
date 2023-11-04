@@ -14,6 +14,7 @@ configure_uploads(app, images)
 
 class UploadForm(FlaskForm):
     name = StringField('name')
+    gender = StringField('gender')
     age = IntegerField("age")
     image = FileField('image')
 
@@ -37,13 +38,13 @@ def index():
         
         
         return redirect(url_for('result'))
-    return render_template("index.html", form=form)
+    return render_template("Page1.html", form=form)
 
 @app.route('/result')
 def result():
     file = open('static/output.json')
     op = json.load(file)
-    return render_template("interactive_result.html", content=op)
+    return render_template("Page2.html", content=op)
 
 
 if __name__ == "__main__":
