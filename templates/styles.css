@@ -138,7 +138,7 @@ header {
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
-  margin: 110px 100px 40px 110px; /* Adjusted top, right, and left margins */
+  margin: 99px 100px 40px 135px; /* Adjusted top, right, and left margins */
 }
 
 
@@ -313,4 +313,24 @@ form .form-row .textarea {
 .Gimmick:hover {
   background-color: #007bff;
   color: #ffffff;
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  font-size: 14px;
+}
+
+.footer-content p {
+  margin: 0;
 }
