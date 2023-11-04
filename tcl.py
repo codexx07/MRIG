@@ -1,26 +1,20 @@
+#%% 
+import os
+from dotenv import find_dotenv, load_dotenv
+dotenv_path = find_dotenv()
+load_dotenv(dotenv_path)
+api_key = os.getenv("api_key")
 
-#%%
-# class NoOpLLM:
-#     def complete(self, prompt, **kwargs):
-#         # Return empty string to simulate no language model completion
-#         return ""
-    
-#     def embed(self, texts):
-#         # Return dummy embedding, you can specify the size as needed, e.g., size of your actual embeddings
-#         return [np.zeros(768) for _ in texts]
-        
 #%%
 from langchain.llms import GooglePalm
-api_key=("AIzaSyAfqfHDETKyOMe1uZmkKzmQaVWLkGF6tSY")
-llm = GooglePalm(google_api_key=api_key,temperature=0.05)
-# llm = NoOpLLM()
-
-# %%
-loader = CSVLoader(file_path=r'C:\Users\Sarabjot Singh\OneDrive\Desktop\MRIG\Dataset_LLM.csv', source_column='prompt')
-data = loader.load()
+llm = GooglePalm(google_api_key=api_key,temperature=0.001)
 
 # %%
 from langchain.document_loaders.csv_loader import CSVLoader
+
+# %%
+loader = CSVLoader(file_path=r'C:\Users\Sarabjot Singh\OneDrive\Desktop\MRIG\dataset_30.csv', source_column='prompt')
+data = loader.load()
 
 # %%
 from langchain.embeddings import HuggingFaceInstructEmbeddings
@@ -34,17 +28,17 @@ e = embeddings.embed_query("What is penumonia?")
 len(e)
 
 # %%
-e[:4]
+e[:33]
 
 # %%
 from langchain.vectorstores import FAISS
 
 # Create a FAISS instance for vector database from 'data'
-vectordb = FAISS.from_documents(documents=data,
-                                 embedding=embeddings)
+vectordb = FAISS.from_documents(documents=data, embedding=embeddings)
 
 # Create a retriever for querying the vector database
-retriever = vectordb.as_retriever(score_threshold = 0.7)
+retriever = vectordb.as_retriever(score_threshold=0.85)  
+
 
 # %%
 retriever= vectordb.as_retriever()
@@ -74,7 +68,6 @@ CONTEXT: {context}
 
 QUESTION: {question}"""
 
-
 PROMPT = PromptTemplate(
     template=prompt_template, input_variables=["context", "question"]
 )
@@ -82,14 +75,22 @@ chain_type_kwargs = {"prompt": PROMPT}
 
 
 # %%
-# from langchain.chains import RetrievalQA
+from langchain.chains import RetrievalQA
 
-# chain = RetrievalQA.from_chain_type(llm=llm,
-#                             chain_type="stuff",
-#                             retriever=retriever,
-#                             input_key="query",
-#                             return_source_documents=True,
-#                            )
+chain = RetrievalQA.from_chain_type(llm=llm,
+                            chain_type="stuff",
+                            retriever=retriever,
+                            input_key="query",
+                            return_source_documents=True,
+                           )
+
+#%%
+def query_chain(query):
+    response = chain(query)
+    # If 'response' is a dictionary and has some key, say 'answer', to check:
+    if 'answer' in response and not response['answer']:  # adjust the condition based on response structure
+        return "I don't know."
+    return response
 
 # %%
 chain("penumonia")
@@ -98,10 +99,11 @@ chain("penumonia")
 chain(" independence day")
 
 # %%
-chain(" fluid mechanics ")
+chain(" what is edema ")
 
 # %%
-chain("aerospace engineering")
+chain("which is the best college in india")
 
 # %%
-chain("penumonia in kids")
+response = chain(" How to make butter chicken")
+print(response)
