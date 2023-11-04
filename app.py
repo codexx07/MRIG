@@ -42,8 +42,9 @@ def index():
         op['name'] = name
         op['age'] = age
         op['gender'] = gender
-        print(op)
-        
+        op_file = open("static/input.json", "w")
+        json.dump(op, op_file, indent=4)
+        print("exported to json")
         return redirect(url_for('result'))
     return render_template("Page1.html", form=form)
 
@@ -51,7 +52,7 @@ def index():
 def result():
     file = open('static/output.json')
     op = json.load(file)
-    return render_template("Page2.html", content=op)
+    return render_template("xray.html", content=op)
 
 
 if __name__ == "__main__":
