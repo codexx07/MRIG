@@ -10,11 +10,12 @@ body {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 8px;
-    margin: 50px 20px 20px 50px; /* Updated margin for left alignment */
+    margin: 30px 10px 10px 25px; /* Updated margin for left alignment */
     width: 50%;
     background-color: #f9f9f9;
     text-align: justify;
 }
+
 
 .hero {
     background-color: #e5e5fa;
@@ -28,6 +29,58 @@ body {
     margin-bottom: 20px;
     text-align: center;
 }
+
+/* Style the table with vibrant colors, considering #d0969f as the primary color */
+.section table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Header row style */
+.section table thead tr {
+    background-color: #d0969f; /* Primary color for header */
+    color: #ffffff;
+}
+
+/* Header cells style */
+.section table thead th {
+    padding: 10px 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Body row styles */
+.section table tbody tr {
+    background-color: #ffffff; /* Light background for contrast */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Body cells style */
+.section table tbody td {
+    padding: 10px 15px;
+    color: #555555; /* Dark text for readability */
+    border-bottom: 1px solid #e1e1e1; /* Light borders for separation */
+}
+
+/* Hover effect for rows */
+.section table tbody tr:hover {
+    background-color: #f2e2e4; /* Light pink for hover, matches the color palette */
+}
+
+/* Style for interactive elements like buttons or links within the table */
+.section table tbody td a {
+    color: #d0969f; /* Use the primary color for links */
+    text-decoration: none;
+    transition: color 0.3s; /* Transition for a smooth color change */
+}
+
+.section table tbody td a:hover,
+.section table tbody td a:focus {
+    color: #bf7480; /* A darker shade for hover state */
+    text-decoration: underline; /* Underline for additional feedback */
+}
+
 
 img {
     width: 400px;
