@@ -28,19 +28,21 @@ def onFirstPage(canvas, doc, logo_path):
     canvas.restoreState()
 
 def generate_pdf(patient_info_path, medical_data_path, image_path, logo_path):
-    pdf_path = os.path.join(os.getcwd(), "output.pdf")
+    pdf_path = "static/output.pdf"
+    print(pdf_path)
     doc = SimpleDocTemplate(pdf_path, pagesize=letter, topMargin=3* inch, bottomMargin=inch)
     styles = getSampleStyleSheet()
     styles.add(ParagraphStyle(name='BoldStyle', parent=styles['Normal'], fontName='Helvetica-Bold'))
 
     # Load patient information from JSON file
-    with open(patient_info_path, 'r') as file:
-        patient_info = json.load(file)
-
+    file_pat = open(patient_info_path)
+    patient_info = json.load(file_pat)
+    file_pat.close()
+    
     # Load medical data from JSON file
-    with open(medical_data_path, 'r') as file:
-        medical_data = json.load(file)
-
+    file_med = open(medical_data_path) 
+    medical_data = json.load(file_med)
+    file_med.close()
     # Create flowable content for the PDF
     flowables = []
 
@@ -82,15 +84,16 @@ def generate_pdf(patient_info_path, medical_data_path, image_path, logo_path):
 
     return pdf_path
 
-# Paths to the JSON files and other resources
-patient_info_path = r"C:\Users\tanma\Downloads\input_json.json"
-medical_data_path = r"C:\Users\tanma\Downloads\output_json.json"
-image_path = r"C:\Users\tanma\OneDrive\Desktop\Xray scan templates\aaa867f71f0fedbd9cdadd08e62a17_big_gallery.jpeg"
-logo_path = r"C:\Users\tanma\Downloads\logoXray.png"
+if __name__ == "__main__":
+    # Paths to the JSON files and other resources
+    patient_info_path = "static/input.json"
+    medical_data_path = "static/output.json"
+    image_path = "static/media/aaa867f71f0fedbd9cdadd08e62a17_big_gallery.jpeg"
+    logo_path = "static/media/logoXray.png"
 
-# Generate the PDF
-pdf_path = generate_pdf(patient_info_path, medical_data_path, image_path, logo_path)
-print(f"PDF generated successfully at: {pdf_path}")
+    # Generate the PDF
+    pdf_path = generate_pdf(patient_info_path, medical_data_path, image_path, logo_path)
+    print(f"PDF generated successfully at: {pdf_path}")
 
 
 
