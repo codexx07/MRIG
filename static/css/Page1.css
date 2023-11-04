@@ -196,7 +196,6 @@ form .form-row .textarea {
   border-bottom: 2px solid rgba(0, 0, 0, 0.12);
 }
 
-/* Animation for input label when focused or valid */
 .input-data input:focus ~ label,
 .textarea textarea:focus ~ label,
 .input-data input:valid ~ label,
@@ -204,12 +203,9 @@ form .form-row .textarea {
   transform: translateY(-20px);
   font-size: 14px;
   color: #b77e87;
-}
+} 
 
-/* Extend the styles to include email input */
-.input-data input[type="email"] ~ label {
-  color: #b77e87;
-}
+
 
 .textarea textarea {
   resize: none;
