@@ -17,7 +17,7 @@ configure_uploads(app, images)
 class UploadForm(FlaskForm):
     name = StringField('name')
     gender = StringField('gender')
-    mail = StringField('email')
+    email = StringField('email')
     age = IntegerField("age")
     image = FileField('image')
 
