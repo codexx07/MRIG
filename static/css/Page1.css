@@ -272,6 +272,8 @@ form .form-row .textarea {
   color: #000000;
 }
 
+
+
 /* Text section styles */
 .text-section {
   width: calc(50% - 20px);
@@ -340,6 +342,10 @@ form .form-row .textarea {
   margin-bottom: 30px;
 }
 
+.text-section tag-line{
+  color:#d0969f;
+}
+
 .text-section button {
   padding: 10px 20px;
   border: none;
@@ -368,7 +374,7 @@ footer {
 }
 
 .footer-content {
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .footer-content p {
