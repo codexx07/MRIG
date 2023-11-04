@@ -15,7 +15,7 @@ app = Flask(__name__, static_url_path="/static")
 app.config['SECRET_KEY'] = 'supersecretpasskey'
 app.config['UPLOADED_PHOTOS_DEST'] = 'static/uploads'
 
-images = UploadSet('photos', ('jpg'))
+images = UploadSet('photos', ('png'))
 configure_uploads(app, images)
 
 executor = Executor(app)
