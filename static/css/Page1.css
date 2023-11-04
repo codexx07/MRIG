@@ -271,7 +271,7 @@ form .form-row .textarea {
   margin: 150px 70px 60px 10px;
 }
 
-/* .text-section h1 {
+.text-section h1 {
   font-size: 60px;
   margin-bottom: 20px;
   font-family: "Lato"; 
@@ -280,7 +280,7 @@ form .form-row .textarea {
   white-space: nowrap; 
   letter-spacing: .15em; 
   animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-} */
+}
 
 /* Keyframes for the typing effect */
 @keyframes typing {
