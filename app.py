@@ -23,7 +23,9 @@ class UploadForm(FlaskForm):
 def index():
     form = UploadForm()
     if form.validate_on_submit():
-        
+        name = form.name.data
+        gender = form.gender.data
+        age = form.age.data
         try:
             filename = images.save(form.image.data)
         except UploadNotAllowed:
@@ -36,6 +38,11 @@ def index():
             os.remove("static/uploads/input.jpg")
             os.rename("static/uploads/"+filename, "static/uploads/input.jpg")
         
+        op = {}
+        op['name'] = name
+        op['age'] = age
+        op['gender'] = gender
+        print(op)
         
         return redirect(url_for('result'))
     return render_template("Page1.html", form=form)

@@ -9,3 +9,9 @@ document.addEventListener('mousemove', (e) => {
   cursorInner.style.transform = 'translate(-50%, -50%)';
 });
 
+function showImage() {
+  var imgField = document.getElementById("imgField");
+  var target = document.getElementById("target");
+  
+  target.innerText = "File uploaded"
+}
