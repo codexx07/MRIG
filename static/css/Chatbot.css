@@ -203,6 +203,12 @@ header h2 {
   font-size: 1.35rem;
 }
 
+.chatbox .chatbox-disclaimer {
+  color: red;
+  text-align: center;
+  font-size: 0.7em
+}
+
 .chat-input textarea:valid ~ span {
   visibility: visible;
 }
