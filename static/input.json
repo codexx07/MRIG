@@ -1,6 +1,7 @@
 {
-    "name": "Kedar",
-    "age": 19,
+    "name": "Kedar Shinde",
+    "age": 34,
     "gender": "Male",
-    "email": "kedarshinde1108@gmail.com"
+    "email": "kedarshinde1108@gmail.com",
+    "filename": "/static/uploads/input.jpg"
 }
