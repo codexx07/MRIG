@@ -11,17 +11,17 @@
 <body>
     <div class="report-container">
         <div class="hero">
-            <img src="/static/media/logon.png" alt="">
+            <img src="/static/media/logoXray.png" alt="">
             <h1>X-RAY Report</h1>
         </div>
         <div class="section">
-            <strong>Name:</strong> Yashvi M. Patel
+            <strong>Name:</strong> {{ content.input.name }}
         </div>
         <div class="section">
-            <strong>Age:</strong> 21
+            <strong>Age:</strong> {{ content.input.age }}
         </div>
         <div class="section">
-            <strong>Gender:</strong> Female
+            <strong>Gender:</strong> {{ content.input.gender }}
         </div>
         <div class="section">
             <table>
@@ -30,7 +30,7 @@
                     <th>Percentage (%)</th>
                 </tr>
         
-                {% for key,item in content.items() %}
+                {% for key,item in content.output.items() %}
                     <tr>
                         <td>{{key}}</td>
                         <td>{{item}}</td>

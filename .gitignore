@@ -1,1 +1,4 @@
-__pycache__/mail.cpython-311.pyc
+__pycache__/
+static/input.json
+static/output.pdf
+static/uploads/input.jpg
