@@ -5,13 +5,16 @@
       <title>MRIG</title>
       <link rel="stylesheet" href="/static/css/Page1.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap">
+      <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet"> 
+      <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet"> 
+      <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Poppins:wght@200&display=swap" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src = "Page1picker.js"> </script>
    </head>
    <body>
     <div class="logo">
         <img src="/static/media/logon.png" alt="Your Logo">
     </div>
-
     <header>
         <nav class="navbar">
             <ul class="nav-links">
@@ -23,9 +26,11 @@
             </ul>
         </nav>
     </header>
+    <div class="custom-cursor"></div>
       <div class="content-wrapper">
          <div class="upload-section">
             <div class="form-container">
+
                <form method="POST" enctype="multipart/form-data">
                   {{ form.csrf_token }}
                   <div class="circle-icon">
@@ -38,6 +43,7 @@
                   <!-- {{ form.image(class="circle-icon")}}
                   <label for="{{form.image.id}}"><span>+</span></label> -->
                   <h1>Add your Files</h1>
+
                   <div class="form-row">
                      <div class="input-data">
                         <!-- <input type="text" required> -->
@@ -78,7 +84,16 @@
          </div>
          <div class="text-section">
             <h1>MRIG</h1>
-            <p>One stop Destination for all your Scans. Analyze. Understand. Refer</p>
+            <br>
+            <p>Unlocking Health Insights Made Easy:<br>Seamlessly Upload Your Scans,<br>Receive Personalized Reports,<br>Engage in Conversations with Our AI-Powered Chatbot <br> Gain Deeper Insights on Your Personalized Health Reports.<br>
+               <br>
+               <br>
+               <span class="typewriter">
+                 <span class="word">Analyze.</span>
+                 <span class="word">Understand.</span>
+                 <span class="word">Refer.</span>
+               </span></p>
+               
             <button class="Gimmick">Let's Go</button>
          </div>
       </div>

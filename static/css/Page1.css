@@ -116,19 +116,19 @@ header {
   width: 40px;
   height: 40px;
   background-color: #ffffff;
-  border: 2px solid #007bff;
+  border: 2px solid #d0969f;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #007bff;
+  color: #ffc0cb;
   font-size: 40px;
   margin: 0 auto 20px auto;
 }
 
 .circle-icon:hover {
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: #ffc0cb;
+  color: #000000;
 }
 
 /* Upload section styles */
@@ -188,7 +188,7 @@ form .form-row .textarea {
 .textarea textarea:valid ~ label {
   transform: translateY(-20px);
   font-size: 14px;
-  color: #3498db;
+  color: #b77e87;
 }
 
 .textarea textarea {
@@ -222,7 +222,7 @@ form .form-row .textarea {
   content: "";
   height: 2px;
   width: 100%;
-  background: #3498db;
+  background: #000000;
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s ease;
@@ -238,12 +238,12 @@ form .form-row .textarea {
   width: 120px; /* Adjust the width as needed */
   height: 40px; /* Adjust the height as needed */
   background-color: #fff;
-  border: 2px solid #007bff;
+  border: 2px solid #d0969f;
   border-radius: 5px; /* Add border-radius for rounded corners */
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #007bff;
+  color: #000000;
   font-size: 16px; /* Adjust the font size as needed */
   margin: 0 auto 20px auto;
   cursor: pointer;
@@ -251,8 +251,8 @@ form .form-row .textarea {
 }
 
 .Button-data:hover {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #ffc0cb;
+  color: #000000;
 }
 
 /* Text section styles */
@@ -274,11 +274,11 @@ form .form-row .textarea {
 .text-section h1 {
   font-size: 60px;
   margin-bottom: 20px;
-  font-family: 'Work Sans'; /* Applying the fancy font */
-  overflow: hidden; /* Ensures the content is only shown in the content box */
-  border-right: .07em solid #ffc0cb;  /* The typewriter cursor */
-  white-space: nowrap; /* Keeps content on a single line */
-  letter-spacing: .15em; /* Adjusts spacing between letters */
+  font-family: "Lato"; 
+  overflow: hidden; 
+  border-right: .07em solid #ffc0cb; 
+  white-space: nowrap; 
+  letter-spacing: .15em; 
   animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
 }
 
@@ -295,6 +295,29 @@ form .form-row .textarea {
 }
 
 
+/* Add styles for the typewriter animation */
+/* Add styles for the typewriter animation */
+
+.typewriter .word {
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-family: "Lato"; /* Applying the fancy font */
+  overflow: hidden; /* Ensures the content is only shown in the content box */
+  /* border-right: .07em solid #ffc0cb;  The typewriter cursor */
+  white-space: nowrap; /* Keeps content on a single line */
+  letter-spacing: .15em; /* Adjusts spacing between letters */
+  /* animation: typing 3.5s steps(40, end) 2s, blink-caret .75s step-end 2s infinite; */
+}
+
+/* @keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+} */
+
 
 .text-section p {
   margin-bottom: 30px;
@@ -303,16 +326,16 @@ form .form-row .textarea {
 .text-section button {
   padding: 10px 20px;
   border: none;
-  background-color: #fff;
-  color: #000;
+  background-color: #000000;
+  color: #ffc0cb;
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
 }
 
 .Gimmick:hover {
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: #ffc0cb;
+  color: #000000;
 }
 
 
