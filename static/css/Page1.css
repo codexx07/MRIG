@@ -15,7 +15,6 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  /* cursor:none; */
 }
 
 .custom-cursor {
@@ -39,23 +38,19 @@ body {
 }
 
 @keyframes fade-down {
-
-	30% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* Add this CSS to your existing stylesheet or within a <style> tag in your HTML */
 
 .uploaded-button {
   padding: 10px 20px;
-  background-color: #4CAF50; /* Green background */
-  color: white; /* White text */
+  background-color: #4CAF50;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -63,9 +58,8 @@ body {
 }
 
 .uploaded-button:hover {
-  background-color: #45a049; /* Darker shade of green on hover */
+  background-color: #45a049;
 }
-
 
 .logo {
   position: absolute;
@@ -83,10 +77,10 @@ header {
   padding: 10px 20px;
   position: absolute;
   right: 0;
-  top: 20px; /* brings the navbar a little below the top edge */
+  top: 20px;
   display: flex;
   justify-content: flex-end;
-  width: calc(100% - 140px); /* adjusted width to align with the logo */
+  width: calc(100% - 140px);
 }
 
 .navbar {
@@ -122,13 +116,12 @@ header {
 .nav-links a:hover {
   text-decoration: underline;
 }
-/* Content wrapper styles */
+
 .content-wrapper {
   display: flex;
-  flex-wrap: wrap; /* Allow content to wrap to the next line if necessary */
+  flex-wrap: wrap;
 }
 
-/* Upload section styles */
 .circle-icon {
   width: 40px;
   height: 40px;
@@ -148,22 +141,19 @@ header {
   color: #000000;
 }
 
-/* Upload section styles */
 .upload-section {
   width: calc(30% - 20px);
   padding: 20px;
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
-  margin: 99px 10px 40px 135px; /* Adjusted top, right, and left margins */
+  margin: 99px 10px 40px 135px;
 }
-
 
 .upload-section h1,
 .upload-section button {
-  text-align: center; /* Center align text and button */
+  text-align: center;
 }
-
 
 .upload-section form {
   width: 100%;
@@ -199,6 +189,7 @@ form .form-row .textarea {
   border-bottom: 2px solid rgba(0, 0, 0, 0.12);
 }
 
+/* Animation for input label when focused or valid */
 .input-data input:focus ~ label,
 .textarea textarea:focus ~ label,
 .input-data input:valid ~ label,
@@ -251,20 +242,21 @@ form .form-row .textarea {
 .textarea textarea:valid ~ .underline:before {
   transform: scale(1);
 }
+
 .Button-data {
-  width: 120px; /* Adjust the width as needed */
-  height: 40px; /* Adjust the height as needed */
+  width: 120px;
+  height: 40px;
   background-color: #fff;
   border: 2px solid #d0969f;
-  border-radius: 5px; /* Add border-radius for rounded corners */
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #000000;
-  font-size: 16px; /* Adjust the font size as needed */
+  font-size: 16px;
   margin: 0 auto 20px auto;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s; /* Add transition for smooth hover effect */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .Button-data:hover {
@@ -272,15 +264,14 @@ form .form-row .textarea {
   color: #000000;
 }
 
-/* Text section styles */
 .text-section {
   width: calc(50% - 20px);
   color: #fff;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align items to the right */
-  text-align: right; /* Align text to the right */
+  align-items: flex-end;
+  text-align: right;
   background-size: cover;
   background-position: center;
   padding: 20px;
@@ -291,50 +282,32 @@ form .form-row .textarea {
 .text-section h1 {
   font-size: 60px;
   margin-bottom: 20px;
-  font-family: "Lato"; 
-  overflow: hidden; 
-  border-right: .07em solid #ffc0cb; 
-  white-space: nowrap; 
-  letter-spacing: .15em; 
+  font-family: "Lato";
+  overflow: hidden;
+  border-right: .07em solid #ffc0cb;
+  white-space: nowrap;
+  letter-spacing: .15em;
   animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
 }
 
-/* Keyframes for the typing effect */
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
 
-/* Keyframes for the blinking cursor */
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: #ffc0cb; }
 }
 
-
-/* Add styles for the typewriter animation */
-/* Add styles for the typewriter animation */
-
 .typewriter .word {
   font-size: 30px;
   margin-bottom: 20px;
-  font-family: "Lato"; /* Applying the fancy font */
-  overflow: hidden; /* Ensures the content is only shown in the content box */
-  /* border-right: .07em solid #ffc0cb;  The typewriter cursor */
-  white-space: nowrap; /* Keeps content on a single line */
-  letter-spacing: .15em; /* Adjusts spacing between letters */
-  /* animation: typing 3.5s steps(40, end) 2s, blink-caret .75s step-end 2s infinite; */
+  font-family: "Lato";
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: .15em;
 }
-
-/* @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-} */
-
 
 .text-section p {
   margin-bottom: 30px;
@@ -355,8 +328,6 @@ form .form-row .textarea {
   color: #000000;
 }
 
-
-/* Footer Styles */
 footer {
   background-color: #000;
   color: #fff;
