@@ -2,9 +2,12 @@ from flask import Flask, render_template, Response, request, redirect, flash, ur
 from flask_wtf import FlaskForm
 from wtforms import StringField, FileField, IntegerField
 from flask_uploads import configure_uploads, IMAGES, UploadSet, UploadNotAllowed
+from flask_executor import Executor
+
 import os
 import json
 import re
+
 import jsonpdfgen
 import mail
 
@@ -14,6 +17,8 @@ app.config['UPLOADED_PHOTOS_DEST'] = 'static/uploads'
 
 images = UploadSet('photos', ('jpg'))
 configure_uploads(app, images)
+
+executor = Executor(app)
 
 class UploadForm(FlaskForm):
     name = StringField('name')
@@ -25,6 +30,9 @@ class UploadForm(FlaskForm):
 def validateEmail(email):
     regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
     return re.fullmatch(regex,email)
+
+def validateAge(age):
+    return age not in range(1,101)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -38,6 +46,10 @@ def index():
         if validateEmail(email) == None:
             flash("Wrong E-Mail Format!")
             return redirect(url_for('index'))
+        
+        if validateAge(age):
+            flash("Please enter your correct age!")
+            return redirect(url_for("index"))
         try:
             filename = images.save(form.image.data)
         except UploadNotAllowed:
@@ -60,10 +72,7 @@ def index():
         json.dump(op, op_file, indent=4)
         print("exported to json:", op_file.read())
     
-        jsonpdfgen.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.jpg", "static/media/logoXray.png")
 
-        mail.sendMail(email)
-        print("mail sent")
         return redirect(url_for('result'))
     
     return render_template("Page1.html", form=form)
@@ -75,7 +84,8 @@ def result():
     file_op.close()
     file_ip = open("static/input.json")
     ip = json.load(file_ip)
-
+    executor.submit(mail.sendMail, ip['email'])
+    jsonpdfgen.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.jpg", "static/media/logoXray.png")
     return render_template("xray.html", content={'input': ip, 'output': op})
 
 
