@@ -67,15 +67,16 @@ def generate_pdf(name, age, gender, findings, impression, image_path, logo_path)
 
     return pdf_path
 
-# Example usage
-name = "Yashvi M. Patel"
-age = "21"
-gender = "Female"
-findings = "The proximal radio-ulnar and elbow joints are intact and display normal alignment without fractures, dislocations, or signs of degenerative changes on the X-ray."
-impression = "Radiological assessment reveals no abnormalities in the elbow region, suggesting no evident bone or joint pathology in the imaged area."
-image_path = r"C:\Users\tanma\OneDrive\Desktop\Xray scan templates\aaa867f71f0fedbd9cdadd08e62a17_big_gallery.jpeg"
-logo_path = r"C:\Users\tanma\Downloads\logoXray.png"
+if __name__ == "__main__":
+    # Example usage
+    name = "Yashvi M. Patel"
+    age = "21"
+    gender = "Female"
+    findings = "The proximal radio-ulnar and elbow joints are intact and display normal alignment without fractures, dislocations, or signs of degenerative changes on the X-ray."
+    impression = "Radiological assessment reveals no abnormalities in the elbow region, suggesting no evident bone or joint pathology in the imaged area."
+    image_path = "static/aaa867f71f0fedbd9cdadd08e62a17_big_gallery.jpeg"
+    logo_path = "static/logoXray.png"
 
-# Generate the PDF
-pdf_path = generate_pdf(name, age, gender, findings, impression, image_path, logo_path)
-print(f"PDF generated successfully at: {pdf_path}")
+    # Generate the PDF
+    pdf_path = generate_pdf(name, age, gender, findings, impression, image_path, logo_path)
+    print(f"PDF generated successfully at: {pdf_path}")
