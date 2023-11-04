@@ -6,6 +6,7 @@
       <link rel="stylesheet" href="Page1.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src = "Page1picker.js"> </script>
    </head>
    <body>
     <div class="logo">
@@ -26,7 +27,9 @@
       <div class="content-wrapper">
          <div class="upload-section">
             <div class="form-container">
-               <button type="submit" class="circle-icon">
+               <div class="custom-cursor"></div>
+               <input type="file" id="fileInput" style="display: none;" />
+               <button id ="filePickerButton="submit" class="circle-icon">
                <span>+</span>
                </button>
                <h1>Add your Files</h1>

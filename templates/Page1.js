@@ -9,3 +9,5 @@ document.addEventListener('mousemove', (e) => {
   cursorInner.style.transform = 'translate(-50%, -50%)';
 });
 
+
+
