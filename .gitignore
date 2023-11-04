@@ -3,4 +3,5 @@ outputs/
 uploads/
 static/input.json
 static/output.pdf
+static/output.json
 static/final_cnn_model.h5
