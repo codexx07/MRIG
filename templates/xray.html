@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>X-RAY Report</title>
+    <link rel="stylesheet" href="/static/css/xray_report.css">
+</head>
+<body>
+    <div class="report-container">
+        <div class="hero">
+            <h1>X-RAY Report</h1>
+        </div>
+        <div class="section">
+            <strong>Name:</strong> Yashvi M. Patel
+        </div>
+        <div class="section">
+            <strong>Age:</strong> 21
+        </div>
+        <div class="section">
+            <strong>Gender:</strong> Female
+        </div>
+        <div class="section">
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Percentage (%)</th>
+                </tr>
+        
+                {% for key,item in content.items() %}
+                    <tr>
+                        <td>{{key}}</td>
+                        <td>{{item}}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+        <div class="section">
+            <img src="/static/uploads/input.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
