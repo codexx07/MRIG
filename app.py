@@ -5,6 +5,7 @@ from flask_uploads import configure_uploads, IMAGES, UploadSet, UploadNotAllowed
 import os
 import json
 import re
+import jsonpdfgen
 import mail
 
 app = Flask(__name__, static_url_path="/static")
@@ -55,20 +56,27 @@ def index():
         op['gender'] = gender
         op['email'] = email
         print(op)
+        op_file = open("static/input.json", "w+")
+        json.dump(op, op_file, indent=4)
+        print("exported to json:", op_file.read())
+    
+        jsonpdfgen.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.jpg", "static/media/logoXray.png")
+
         mail.sendMail(email)
         print("mail sent")
-        op_file = open("static/input.json", "w")
-        json.dump(op, op_file, indent=4)
-        print("exported to json")
         return redirect(url_for('result'))
     
     return render_template("Page1.html", form=form)
 
 @app.route('/result')
 def result():
-    file = open('static/output.json')
-    op = json.load(file)
-    return render_template("xray.html", content=op)
+    file_op = open('static/output.json')
+    op = json.load(file_op)
+    file_op.close()
+    file_ip = open("static/input.json")
+    ip = json.load(file_ip)
+
+    return render_template("xray.html", content={'input': ip, 'output': op})
 
 
 if __name__ == "__main__":

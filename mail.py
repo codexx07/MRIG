@@ -2,7 +2,7 @@ import yagmail
 
 def sendMail(receiever):
     body = "Your X-Ray Report - MRIG "
-    filename = "static/genpdf.pdf"
+    filename = "static/output.pdf"
 
     yag = yagmail.SMTP("projectmrig@gmail.com", "puhdhjzedlljdodl")
     yag.send(
