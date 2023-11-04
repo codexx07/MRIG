@@ -8,7 +8,7 @@
 
 body {
   background-color: #000;
-  background-image: url('just.jpg'); /* Use url() to link the image */
+  background-image: url('../media/just.jpg'); /* Use url() to link the image */
   background-size: cover; /* Optional: You might want to cover the entire viewport */
   background-repeat: no-repeat; /* Optional: Prevents the image from repeating */
   margin: 0;
