@@ -94,7 +94,3 @@ if __name__ == "__main__":
     # Generate the PDF
     pdf_path = generate_pdf(patient_info_path, medical_data_path, image_path, logo_path)
     print(f"PDF generated successfully at: {pdf_path}")
-
-
-
-

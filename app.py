@@ -15,7 +15,7 @@ app = Flask(__name__, static_url_path="/static")
 app.config['SECRET_KEY'] = 'supersecretpasskey'
 app.config['UPLOADED_PHOTOS_DEST'] = 'static/uploads'
 
-images = UploadSet('photos', ('jpg'))
+images = UploadSet('photos', ('jpg', 'png'))
 configure_uploads(app, images)
 
 executor = Executor(app)
@@ -84,8 +84,8 @@ def result():
     file_op.close()
     file_ip = open("static/input.json")
     ip = json.load(file_ip)
-    executor.submit(mail.sendMail, ip['email'])
     jsonpdfgen.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.jpg", "static/media/logoXray.png")
+    executor.submit(mail.sendMail, ip['email'])
     return render_template("xray.html", content={'input': ip, 'output': op})
 
 
