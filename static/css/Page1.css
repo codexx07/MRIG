@@ -148,22 +148,19 @@ header {
   color: #000000;
 }
 
-/* Upload section styles */
 .upload-section {
   width: calc(30% - 20px);
-  padding: 20px;
+  padding: 10px; /* Reduced padding */
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
-  margin: 99px 10px 40px 135px; /* Adjusted top, right, and left margins */
+  margin: 20px 10px 20px 135px; /* Adjusted margins */
 }
-
 
 .upload-section h1,
 .upload-section button {
   text-align: center; /* Center align text and button */
 }
-
 
 .upload-section form {
   width: 100%;
@@ -199,12 +196,18 @@ form .form-row .textarea {
   border-bottom: 2px solid rgba(0, 0, 0, 0.12);
 }
 
+/* Animation for input label when focused or valid */
 .input-data input:focus ~ label,
 .textarea textarea:focus ~ label,
 .input-data input:valid ~ label,
 .textarea textarea:valid ~ label {
   transform: translateY(-20px);
   font-size: 14px;
+  color: #b77e87;
+}
+
+/* Extend the styles to include email input */
+.input-data input[type="email"] ~ label {
   color: #b77e87;
 }
 
@@ -251,6 +254,7 @@ form .form-row .textarea {
 .textarea textarea:valid ~ .underline:before {
   transform: scale(1);
 }
+
 .Button-data {
   width: 120px; /* Adjust the width as needed */
   height: 40px; /* Adjust the height as needed */
