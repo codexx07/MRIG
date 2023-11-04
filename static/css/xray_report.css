@@ -1,16 +1,60 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 40px;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
 }
+
 .report-container {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 8px;
+    margin: 50px 20px 20px 50px; /* Updated margin for left alignment */
+    width: 50%;
     background-color: #f9f9f9;
+    text-align: justify;
 }
-h1 {
-    text-align: center;
+
+.hero {
+    background-color: #e5e5fa;
+    text-align: left;
+    top: 50%;
+    height: 200pt;
+    display: flex;
+    align-items: center;
 }
 .section {
     margin-bottom: 20px;
+    text-align: center;
+}
+
+img {
+    width: 400px;
+    height: 300px;
+}
+
+h1 {
+    top: 50%;
+    margin-right: 50pt;
+}
+table {
+    width: 50%;
+    margin: 0 auto; /* Center the table */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #000;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #333;
+    color: #fff;
+}
+tr:nth-child(even) {
+    background-color: #ccc;
 }
