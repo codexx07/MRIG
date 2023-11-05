@@ -67,10 +67,11 @@ def index():
         try:
             os.rename("static/uploads/"+filename, "static/uploads/input"+ext)
         except FileExistsError:
-            try:
+            if ext == ".png":
                 os.remove("static/uploads/input.png")
-            except FileNotFoundError:
+            else:
                 os.remove("static/uploads/input.jpg")
+            
             os.rename("static/uploads/"+filename, "static/uploads/input"+ext)
         
         op = {}
