@@ -84,13 +84,16 @@ body {
 
 img {
     margin: 20px 20px 20px 80px;
-    width: 150px;
-    height: 150px;
+    width: 300px; /* Adjusted from 150px to 300px */
+    height: 300px; /* Adjusted from 150px to 300px */
 }
 
-img .idk{
-    width: 100px;
+.section img.idk {
+    margin: 20px; /* This applies margin to all images */
+    width: 600px; /* This sets a fixed width to all images */
+    height: auto; /* This maintains the aspect ratio based on the width set */
 }
+
 
 h1 {
     top: 50%;

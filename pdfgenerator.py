@@ -43,7 +43,7 @@ def onFirstPage(canvas, doc, logo_path, patient_info):
     canvas.restoreState()
 
 def generate_pdf(patient_info_path, medical_data_path, image_path1, image_path2, image_path3, image_path4, logo_path):
-    pdf_path = os.path.join(os.getcwd(), "output.pdf")
+    pdf_path = os.path.join(os.getcwd(), "static/output.pdf")
     doc = SimpleDocTemplate(pdf_path, pagesize=letter, topMargin=3*inch, bottomMargin=inch)
     styles = getSampleStyleSheet()
     styles.add(ParagraphStyle(name='BoldStyle', parent=styles['Normal'], fontName='Helvetica-Bold'))
