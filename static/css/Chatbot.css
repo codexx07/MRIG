@@ -71,6 +71,10 @@ body.show-chatbot .chatbot {
   }
 }
 
+.idk {
+  width:150px;
+  height: 150px;
+}
 
 body.show-chatbot .chatbot-toggler {
   transform: rotate(45deg);

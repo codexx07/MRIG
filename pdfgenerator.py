@@ -111,17 +111,18 @@ def generate_pdf(patient_info_path, medical_data_path, image_path1, image_path2,
     return pdf_path
 
 # Paths to the JSON files and other resources
-patient_info_path = r"C:\Users\tanma\Downloads\input_json.json"
-medical_data_path = r"C:\Users\tanma\Downloads\output_json.json"
-image_path1 = r"C:\Users\tanma\OneDrive\Desktop\Xray scan templates\aaa867f71f0fedbd9cdadd08e62a17_big_gallery.jpeg"
-image_path2 = r"C:\Users\tanma\Downloads\classActivation_Xray.jpg"
-image_path3 = r"C:\Users\tanma\Downloads\outputjson.jpg"                        
-image_path4 = r"C:\Users\tanma\Downloads\predictedprobabilities.jpg"
-logo_path = r"C:\Users\tanma\Downloads\logoXray.png"
+if __name__ == "__main__":
+    patient_info_path = "static/input.json"
+    medical_data_path = "static/output.json"
+    image_path1 = "static/outputs/aaa867f71f0fedbd9cdadd08e62a17_big_gallery.jpeg"
+    image_path2 = "static/outputs/bar_graph.png"
+    image_path3 = "static/outputs/speedometers.png"                        
+    image_path4 = "static/media/logoXray.png"
+    logo_path = "static/outputs/heatmap.png"
 
 # Generate the PDF
-pdf_path = generate_pdf(patient_info_path, medical_data_path, image_path1, image_path2, image_path3, image_path4, logo_path)
-print(f"PDF generated successfully at: {pdf_path}")
+    pdf_path = generate_pdf(patient_info_path, medical_data_path, image_path1, image_path2, image_path3, image_path4, logo_path)
+    print(f"PDF generated successfully at: {pdf_path}")
 
 
 
