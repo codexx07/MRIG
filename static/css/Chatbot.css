@@ -92,8 +92,8 @@ body.show-chatbot .chatbot-toggler span:last-child {
 
 .chatbot {
   position: fixed;
-  right: 50px; /* Adjusted for increased size */
-  bottom: 100px; /* Adjusted for increased size */
+  right: 80px; /* Adjusted for increased size */
+  bottom: 125px; /* Adjusted for increased size */
   width: 500px; /* Increased width */
   height: calc(100% - 150px); /* Increased height dynamically */
   background: #fff;

@@ -83,8 +83,9 @@ body {
 
 
 img {
-    width: 400px;
-    height: 300px;
+    margin: 20px 20px 20px 80px;
+    width: 150px;
+    height: 150px;
 }
 
 h1 {
