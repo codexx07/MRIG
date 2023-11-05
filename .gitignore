@@ -2,3 +2,6 @@ __pycache__/
 static/input.json
 static/output.pdf
 static/uploads/input.jpg
+static/final_cnn_model.h5
+static/outputs/
+static/uploads/
