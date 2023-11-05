@@ -1,6 +1,6 @@
 __pycache__/
-outputs/
-uploads/
+static/outputs/
+static/uploads/
 static/input.json
 static/output.pdf
 static/output.json
