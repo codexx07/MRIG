@@ -16,6 +16,7 @@ import speedometer_gen
 import heat_map_gen
 import bar_graphs
 
+import tcl
 
 app = Flask(__name__, static_url_path="/static")
 app.config['SECRET_KEY'] = 'supersecretpasskey'
@@ -25,6 +26,8 @@ images = UploadSet('photos', ('jpg', 'png'))
 configure_uploads(app, images)
 
 executor = Executor(app)
+
+tcl.create_vector_db()
 
 class UploadForm(FlaskForm):
     name = StringField('name')
@@ -106,6 +109,11 @@ def result():
     executor.submit(mail.sendMail, ip['email'])
     return render_template("xray.html", content={'input': ip, 'output': op})
 
+@app.route('/get', methods=['GET'])
+def get_response():
+    userTxt = request.args.get('query')
+    print(userTxt)
+    return "fuck you"
 
 if __name__ == "__main__":
     app.run(debug=True, threaded=True)

@@ -13,7 +13,7 @@ vectordb_file_path = "faiss_index"
 
 def create_vector_db():
     # Load data from FAQ sheet
-    loader = CSVLoader(file_path=r'C:\Users\Sarabjot Singh\OneDrive\Desktop\code\llm_dataset.csv', source_column="prompt")
+    loader = CSVLoader(file_path=r'llm_dataset.csv', source_column="prompt")
     data = loader.load()
 
     # Create a FAISS instance for vector database from 'data'
@@ -51,14 +51,14 @@ def get_qa_chain():
 
     return chain
 
-def ask_question():
+def ask_question(user_query):
     chain_instance = get_qa_chain()
-    user_query = input("Please enter your question: ")
+    # user_query = input("Please enter your question: ")
     response = chain_instance(user_query)
 
-    print(response['result'])
+    return response['result']
 
 if __name__ == "__main__":
     create_vector_db()
-    ask_question()
+    ask_question("What's Edema")
 
