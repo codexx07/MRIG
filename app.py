@@ -81,7 +81,7 @@ def index():
         print(op)
         op_file = open("static/input.json", "w+")
         json.dump(op, op_file, indent=4)
-        ml_gen.predict()
+        ml_gen.predict(op['filename'][1:])
         return redirect(url_for('result'))
     
     return render_template("Page1.html", form=form)
