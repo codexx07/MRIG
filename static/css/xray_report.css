@@ -88,6 +88,10 @@ img {
     height: 150px;
 }
 
+img .idk{
+    width: 100px;
+}
+
 h1 {
     top: 50%;
     margin-right: 50pt;

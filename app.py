@@ -8,7 +8,7 @@ import os
 import json
 import re
 
-import jsonpdfgen
+import pdfgenerator
 import mail
 
 import ml_gen
@@ -98,12 +98,12 @@ def result():
         bar_graphs.generate("static/uploads/input.png")
         heat_map_gen.generate("static/uploads/input.png")
         speedometer_gen.generate("static/uploads/input.png")
-        jsonpdfgen.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.png", "static/media/logoXray.png")
+        pdfgenerator.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.jpg", "static/outputs/heatmap.png","static/outputs/bar_graph.png","static/outputs/speedometers.png","static/media/logoXray.png")
     else:
         bar_graphs.generate("static/uploads/input.jpg")
         heat_map_gen.generate("static/uploads/input.jpg")
         speedometer_gen.generate("static/uploads/input.jpg")
-        jsonpdfgen.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.jpg", "static/media/logoXray.png")
+        pdfgenerator.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.jpg", "static/outputs/heatmap.png","static/outputs/bar_graph.png","static/outputs/speedometers.png","static/media/logoXray.png")
     executor.submit(mail.sendMail, ip['email'])
     return render_template("xray.html", content={'input': ip, 'output': op})
 
