@@ -11,11 +11,17 @@ import re
 import jsonpdfgen
 import mail
 
+import ml_gen
+import speedometer_gen
+import heat_map_gen
+import bar_graphs
+
+
 app = Flask(__name__, static_url_path="/static")
 app.config['SECRET_KEY'] = 'supersecretpasskey'
 app.config['UPLOADED_PHOTOS_DEST'] = 'static/uploads'
 
-images = UploadSet('photos', ('png'))
+images = UploadSet('photos', ('jpg', 'png'))
 configure_uploads(app, images)
 
 executor = Executor(app)
@@ -56,23 +62,26 @@ def index():
             flash("Filetype not supported! Upload JPEGS!")
             return redirect(url_for('index'))
         
+        ext = os.path.splitext(filename)[1]
         try:
-            os.rename("static/uploads/"+filename, "static/uploads/input.jpg")
+            os.rename("static/uploads/"+filename, "static/uploads/input"+ext)
         except FileExistsError:
-            os.remove("static/uploads/input.jpg")
-            os.rename("static/uploads/"+filename, "static/uploads/input.jpg")
+            try:
+                os.remove("static/uploads/input.png")
+            except FileNotFoundError:
+                os.remove("static/uploads/input.jpg")
+            os.rename("static/uploads/"+filename, "static/uploads/input"+ext)
         
         op = {}
         op['name'] = name
         op['age'] = age
         op['gender'] = gender
         op['email'] = email
+        op['filename'] = "/static/uploads/input"+ext
         print(op)
         op_file = open("static/input.json", "w+")
         json.dump(op, op_file, indent=4)
-        print("exported to json:", op_file.read())
-    
-
+        ml_gen.predict(op['filename'][1:])
         return redirect(url_for('result'))
     
     return render_template("Page1.html", form=form)
@@ -84,8 +93,17 @@ def result():
     file_op.close()
     file_ip = open("static/input.json")
     ip = json.load(file_ip)
+    if os.path.exists("static/uploads/input.png"):
+        bar_graphs.generate("static/uploads/input.png")
+        heat_map_gen.generate("static/uploads/input.png")
+        speedometer_gen.generate("static/uploads/input.png")
+        jsonpdfgen.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.png", "static/media/logoXray.png")
+    else:
+        bar_graphs.generate("static/uploads/input.jpg")
+        heat_map_gen.generate("static/uploads/input.jpg")
+        speedometer_gen.generate("static/uploads/input.jpg")
+        jsonpdfgen.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.jpg", "static/media/logoXray.png")
     executor.submit(mail.sendMail, ip['email'])
-    jsonpdfgen.generate_pdf("static/input.json", "static/output.json", "static/uploads/input.jpg", "static/media/logoXray.png")
     return render_template("xray.html", content={'input': ip, 'output': op})
 
 

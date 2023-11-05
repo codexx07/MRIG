@@ -1,15 +1,15 @@
 {
-    "Atelectasis": 24.41,
-    "Cardiomegaly": 5.18,
-    "Consolidation": 10.55,
-    "Edema": 4.39,
-    "Effusion": 26.27,
-    "Emphysema": 4.69,
-    "Fibrosis": 2.64,
-    "Infiltration": 37.21,
-    "Mass": 11.91,
-    "Nodule": 12.40,
-    "Pleural Thickening": 5.96,
-    "Pneumonia": 2.73,
-    "Pneumothorax": 11.04
+      "Atelectasis": 4.74,
+      "Cardiomegaly": 5.36,
+      "Consolidation": 2.78,
+      "Edema": 1.33,
+      "Effusion": 6.76,
+      "Emphysema": 2.57,
+      "Fibrosis": 2.95,
+      "Infiltration": 1.54,
+      "Mass": 18.18,
+      "Nodule": 2.03,
+      "Pleural Thickening": 57.01,
+      "Pneumonia": 3.76,
+      "Pneumothorax": 3.77
 }
