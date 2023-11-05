@@ -81,4 +81,4 @@ def generate(img_path):
     add_value_labels(ax)
 
     plt.tight_layout()
-    plt.savefig('bar_graph.png')
+    plt.savefig('static/outputs/bar_graph.png')
