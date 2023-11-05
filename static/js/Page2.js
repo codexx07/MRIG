@@ -30,10 +30,15 @@ const createChatLi = (message, className) => {
 }
 
 // Function to generate chatbot response
-const generateResponse = (chatElement, usrMsg) => {
-  console.log(usrMsg)
+const generateResponse = (chatElement, messVar) => {
+  // console.log(usrMsg);
   const messageElement = chatElement.querySelector("p");
-  messageElement.textContent = usrMsg
+  const usrMsg = encodeURIComponent(messVar); // Make sure you define yourMessageVariable
+  fetch(`/get?usrMsg=${usrMsg}`).then(res => res.text()).then(data => {
+    messageElement.textContent = data;
+  }).finally(() => {
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+  });
   // .get("/get", { msg: usrMsg }).done(function (data) {
   //   console.log(rawText);
   //   console.log(data);

@@ -4,12 +4,13 @@ from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
+import os  # Added for file existence check
 
-from langchain.llms import GooglePalm
-api_key=("AIzaSyDDwPxe4yKWwf-6Rq7vkpOkihlVr6uaxkA")
-llm = GooglePalm(google_api_key=api_key,temperature=0.001)
-instructor_embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-large")
 vectordb_file_path = "faiss_index"
+api_key = "AIzaSyDDwPxe4yKWwf-6Rq7vkpOkihlVr6uaxkA"
+llm = GooglePalm(google_api_key=api_key, temperature=0.001)
+instructor_embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-large")
+
 
 def create_vector_db():
     # Load data from FAQ sheet
@@ -17,17 +18,14 @@ def create_vector_db():
     data = loader.load()
 
     # Create a FAISS instance for vector database from 'data'
-    vectordb = FAISS.from_documents(documents=data,
-                                    embedding=instructor_embeddings)
+    vectordb = FAISS.from_documents(documents=data, embedding=instructor_embeddings)
 
     # Save vector database locally
     vectordb.save_local(vectordb_file_path)
 
-def get_qa_chain():
-    # Load the vector database from the local folder
-    vectordb = FAISS.load_local(vectordb_file_path, instructor_embeddings)
 
-    # Create a retriever for querying the vector database
+def get_qa_chain(vectordb):
+    # Use the passed vectordb, no need to reload
     retriever = vectordb.as_retriever(score_threshold=0.7)
 
     prompt_template = """Given the following context and a question, generate an answer based on this context only.
@@ -51,14 +49,18 @@ def get_qa_chain():
 
     return chain
 
-def ask_question(user_query):
-    chain_instance = get_qa_chain()
-    # user_query = input("Please enter your question: ")
-    response = chain_instance(user_query)
 
+def ask_question(chain_instance, query):
+    # user_query = input("Please enter your question: ")
+    response = chain_instance(query)
     return response['result']
 
-if __name__ == "__main__":
-    create_vector_db()
-    ask_question("What's Edema")
 
+if __name__ == "__main__":
+    if not os.path.exists(vectordb_file_path):  # Only create vector db if it doesn't exist
+        create_vector_db()
+
+    vectordb = FAISS.load_local(vectordb_file_path, instructor_embeddings)  # Load the vector database once
+    chain_instance = get_qa_chain(vectordb)  # Create the chain instance once using the loaded vector database
+
+    print(ask_question(chain_instance, "what's edema"))  # Ask the question

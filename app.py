@@ -27,8 +27,6 @@ configure_uploads(app, images)
 
 executor = Executor(app)
 
-tcl.create_vector_db()
-
 class UploadForm(FlaskForm):
     name = StringField('name')
     gender = StringField('gender')
@@ -111,9 +109,20 @@ def result():
 
 @app.route('/get', methods=['GET'])
 def get_response():
-    userTxt = request.args.get('query')
+    userTxt = request.args.get('usrMsg')
     print(userTxt)
-    return "fuck you"
+    if not os.path.exists(tcl.vectordb_file_path):  # Only create vector db if it doesn't exist
+        tcl.create_vector_db()
+
+    vectordb = tcl.FAISS.load_local(tcl.vectordb_file_path, tcl.instructor_embeddings)  # Load the vector database once
+    chain_instance = tcl.get_qa_chain(vectordb)  # Create the chain instance once using the loaded vector database
+    output = tcl.ask_question(chain_instance, userTxt)
+    print(output)
+    return output
+    
+    #
+    #  print(userTxt)
+    # return tcl.ask_question(userTxt)
 
 if __name__ == "__main__":
     app.run(debug=True, threaded=True)
