@@ -1,0 +1,10 @@
+langchain
+python-dotenv
+tiktoken
+faiss-cpu
+protobuf
+langchain
+google-generativeai
+transformers
+instructorembedding
+sentence-transformers

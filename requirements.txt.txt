@@ -1,0 +1,12 @@
+pip install langchain==0.0.284
+pip install python-dotenv==1.0.0
+pip install streamlit==1.22.0
+pip install tiktoken==0.4.0
+pip install faiss-cpu==1.7.4
+pip install protobuf==3.19.0
+pip install --upgrade langchain
+pip install google-generativeai
+pip install transformers
+pip install instructorembedding
+pip install --upgrade langchain
+pip install sentence-transformers
