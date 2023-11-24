@@ -7,7 +7,7 @@ from langchain.chains import RetrievalQA
 import os  # Added for file existence check
 
 vectordb_file_path = "faiss_index"
-api_key = "AIzaSyDDwPxe4yKWwf-6Rq7vkpOkihlVr6uaxkA"
+api_key = "enter your api key"
 llm = GooglePalm(google_api_key=api_key, temperature=0.001)
 instructor_embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-large")
 
